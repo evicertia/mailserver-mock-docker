@@ -15,6 +15,8 @@ for file in /data/postfix_maps/*; do
 done
 
 # Map all files in Postfix configuration directory
-postmap /etc/postfix/*
+for file in /etc/postfix/*; do
+    [ ! $file == /etc/postfix/postfix-files ] && [[ ! $file =~ cf ]] && [[ ! $file =~ \.db$ ]] && [ ! -d $file ] && postmap $file && echo "Mapping file $file"
+done
 
 exec /usr/sbin/postfix -c /etc/postfix start
