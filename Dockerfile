@@ -7,6 +7,7 @@ LABEL version=${VERSION}
 LABEL description="Alpine based postfix/dnsmasq/imap image."
 LABEL maintainer="devs@evicertia.com"
 
+COPY ./main.sh .
 COPY ./*.sh  /usr/sbin/
 COPY ./*.ini  /etc/supervisor.d/
 
@@ -20,4 +21,4 @@ EXPOSE 53/udp
 EXPOSE 143/tcp
 EXPOSE 25/tcp
 
-ENTRYPOINT [ "supervisord", "-n", "-e", "debug", "-c", "/etc/supervisord.conf" ]
+ENTRYPOINT [ "/main.sh" ]
