@@ -11,7 +11,7 @@ COPY ./main.sh .
 COPY ./*.sh  /usr/sbin/
 COPY ./*.ini  /etc/supervisor.d/
 
-RUN apk add --no-cache postfix=3.5.2-r1 bash busybox-extras imap dnsmasq supervisor
+RUN apk add --no-cache postfix bash busybox-extras imap dnsmasq supervisor
 
 
 VOLUME /data
