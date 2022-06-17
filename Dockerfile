@@ -11,6 +11,7 @@ COPY ./main.sh .
 COPY ./*.sh  /usr/sbin/
 COPY ./*.ini  /etc/supervisor.d/
 
+RUN chmod +x /main.sh
 RUN apk add --no-cache postfix bash busybox-extras imap dnsmasq supervisor
 
 
